@@ -102,6 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
     $("finalScore").textContent = score;
     $("resultBar").style.width = score + "%";
     $("resultSubtitle").textContent = `Bravo ${player} ! Voici votre résultat.`;
+    
+    // --- ENVOI DES RÉSULTATS VERS GOOGLE SHEETS / EMAIL ---
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwo2l2twE1APUG7ygDeZ3bNbZHitZw6hywdImB8F7DGZTqjR3pMkDUGQ3y23HLfx4BKNQ/exec";
+    
+    fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ player: player, score: score })
+    }).catch(error => console.error("Erreur d'envoi :", error));
+    // -----------------------------------------------------
+
     let title, msg;
     if (score <= 30) {
       title = "Débutant";
