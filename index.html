@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10152f">
+  <title>COMMUNIQUE ! — Quiz interactif</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <main class="shell">
+    <header class="topbar"><div class="brand"><span class="brand-mark">C!</span><span>COMMUNIQUE<span class="dot">.</span></span></div><span class="pill">QUIZ • DÉVELOPPEMENT PERSONNEL</span></header>
+    <section id="screen-home" class="panel hero">
+      <div class="eyebrow"><span class="live-dot"></span> LE JEU DES PERCEPTIONS</div>
+      <h1>Le sens d’une communication,<br><em>c’est la réponse obtenue.</em></h1>
+      <p class="lead">10 questions pour tester votre façon de communiquer. Prêt à relever le défi ?</p>
+      <div class="home-form">
+        <label for="playerName">Votre prénom ou pseudo</label>
+        <input id="playerName" maxlength="24" placeholder="Ex. Alex" autocomplete="nickname">
+        <button id="startBtn" class="primary">Commencer le quiz <span>→</span></button>
+      </div>
+      <div class="stats"><span>10 questions</span><span>•</span><span>10 points / question</span><span>•</span><span>~4 min</span></div>
+      <p class="small-note">Mode individuel : votre score s’affiche à la fin. Les réponses ne sont pas envoyées ni sauvegardées.</p>
+    </section>
+
+    <section id="screen-quiz" class="panel quiz hidden">
+      <div class="quiz-head"><span id="questionCount" class="eyebrow">QUESTION 1 / 10</span><span id="scoreBadge" class="score-badge">0 pts</span></div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div class="timer-row"><span>Choisissez votre réponse</span><span class="timer"><span class="timer-icon">◷</span> <b id="timer">20</b> s</span></div>
+      <h2 id="questionText"></h2>
+      <div id="answers" class="answers"></div>
+      <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+      <button id="nextBtn" class="primary hidden">Question suivante <span>→</span></button>
+    </section>
+
+    <section id="screen-result" class="panel result hidden">
+      <div class="eyebrow">QUIZ TERMINÉ</div><div class="result-icon">✦</div>
+      <h1 id="resultTitle">Bien joué !</h1><p id="resultSubtitle" class="lead"></p>
+      <div class="result-score"><strong id="finalScore">0</strong><span>/ 100 points</span></div>
+      <div class="result-track"><div id="resultBar"></div></div>
+      <p id="resultMessage" class="result-message"></p>
+      <div class="result-actions"><button id="restartBtn" class="primary">Rejouer ↻</button><button id="reviewBtn" class="secondary">Voir les réponses</button></div>
+      <div id="review" class="review hidden"></div>
+      <p class="small-note">Quiz pédagogique — les catégories de score sont ludiques, pas une évaluation scientifique.</p>
+    </section>
+    <footer><span>COMMUNIQUE !</span><span>Écouter • Reformuler • S’adapter</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
